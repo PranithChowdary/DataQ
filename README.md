@@ -1,5 +1,5 @@
 <h1 align="center">
-    DataQtor
+    DataQ
 </h1>
 
 <p align="center">
@@ -7,14 +7,10 @@
 </p>
 
 <p align="center">
-    <a href="https://share.streamlit.io/baligoyem/dataqtor/main/home.py"><img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" alt="Open in Streamlit"></a>
-    <a href="mailto:beytullahali.goyem@gmail.com"><img src="https://img.shields.io/badge/-beytullahali.goyem@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:beytullahali.goyem@gmail.com"></a>
+    <a href="https://share.streamlit.io/baligoyem/dataqtor/main/home.py"><img src="https://static.streamlit.io/badges/streamlit_badge_black_white.svg" alt="Open in Streamlit</a>
 </p>
 
 <p align="center">
-    <br>
-    <img src="https://github.com/baligoyem/dataqtor/blob/main/DataQtor.png" width="400"/>
-    <br>
 
 ## Get your data ready for use before you start working with it:
 
@@ -25,15 +21,14 @@
 5. Observe improvement in data quality 📈
 6. Download the dataset you repaired 📥
 
-https://user-images.githubusercontent.com/61024126/126400387-7f1ba695-f561-457b-8cc7-90a1373c1cf0.mp4
 
 <h3 align="center">
     Try it now: <br>
-    <a href="https://share.streamlit.io/baligoyem/dataqtor/main/home.py">https://share.streamlit.io/baligoyem/dataqtor/main/home.py</a>
+    <a href="https://share.streamlit.io/">https://share.streamlit.io//main/home.py</a>
 </h3>
 
 <br>
-
-*If you have any questions or comments, [contact me on LinkedIn](https://tr.linkedin.com/in/beytullah-ali-g%C3%B6yem-461749152), and if you find this tool useful, please [consider buying me a coffee](https://www.buymeacoffee.com/baligoyem) ☺*
+<a href="https://www.linkedin.com/in/pranith-chowdary-karumanchi/"><img src="data:image/png;base64,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" alt="Contact me on LinkedIn</a>
+*If you have any questions or comments, [contact me on LinkedIn](https://www.linkedin.com/in/pranith-chowdary-karumanchi/)*
 
 <br>
