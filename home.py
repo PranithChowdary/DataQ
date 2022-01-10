@@ -2050,11 +2050,17 @@ else:
     st.write("")
     """
     **Get your data ready for use before you start working with it:**
+    
     1. Upload your Excel/CSV file 📁
+    
     2. Gain insight into your data 💡
+    
     3. Measure the quality of your data 📊
+    
     4. Repair your data in light of analyzes 🛠
+    
     5. Observe improvement in data quality 📈
+    
     6. Download the dataset you repaired 📥
     ---
     """
