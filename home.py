@@ -110,7 +110,7 @@ if uploaded_file is not None:
         st.write("---")
 
         if st.checkbox("Run Column Detector", key="run_col_detector"):
-            cols = st.beta_columns(2)
+            cols = st.columns(2)
             with cols[0]:
                 selected_column = st.selectbox("Column", columns, key="col_select")
             with cols[1]:
@@ -118,7 +118,7 @@ if uploaded_file is not None:
                                      ["Select", "Define the DQ Rule Yourself", "E-mail Address", "Şehir (TR)",
                                       "T.C. Kimlik No", "Telefon No", "Vergi Kimlik No"], key="define_dq_rule")
 
-            cols = st.beta_columns((7, 1.4, 1.6))
+            cols = st.columns((7, 1.4, 1.6))
             with cols[0]:
                 st.write("Type:", dataset[selected_column].dtype)
             if (dataset[selected_column].dtype == np.int16 or dataset[selected_column].dtype == np.int32 or
@@ -210,7 +210,7 @@ if uploaded_file is not None:
             if (dataset[selected_column].dtype == np.int16 or dataset[selected_column].dtype == np.int32 or
                         dataset[selected_column].dtype == np.int64 or dataset[selected_column].dtype == np.float16 or dataset[
                     selected_column].dtype == np.float32 or dataset[selected_column].dtype == np.float64):
-                cols = st.beta_columns(2)
+                cols = st.columns(2)
                 with cols[0]:
                     if st.checkbox("Show p-0-n"):
                         countp = dataset[dataset[selected_column] > 0][selected_column].count()
@@ -233,7 +233,7 @@ if uploaded_file is not None:
                 name="percentage(%)")
             generalPattern = pd.concat([countpattern, perforPattern], axis=1)
             if generalPattern.shape[0] > 10:
-                cols = st.beta_columns(3)
+                cols = st.columns(3)
                 with cols[0]:
                     st.write("5 most frequent patterns in this column:",
                              generalPattern.iloc[np.r_[0:5]].style.format(
@@ -293,7 +293,7 @@ if uploaded_file is not None:
                         f1 = dataset[selected_column][~(dataset[selected_column] < length)]
 
                     elif editlen == "Between":
-                        cols = st.beta_columns((2, 1, 1, 1, 2))
+                        cols = st.columns((2, 1, 1, 1, 2))
                         with cols[0]:
                             length1 = st.number_input("Value1", format="%i", value=0, min_value=-5000000000,
                                                       max_value=5000000000, step=1)
@@ -302,7 +302,7 @@ if uploaded_file is not None:
                         with cols[4]:
                             length2 = st.number_input("Value2", format="%i", value=0, min_value=-5000000000,
                                                       max_value=5000000000, step=1)
-                        cols = st.beta_columns((1, 1, 1))
+                        cols = st.columns((1, 1, 1))
                         with cols[1]:
                             f1 = dataset[selected_column][~((dataset[selected_column] >= length1) & (
                                     dataset[selected_column] <= length2))]
@@ -333,7 +333,7 @@ if uploaded_file is not None:
                         f1 = dataset[selected_column][~(dataset[selected_column] < length)]
 
                     elif editlen == "Between":
-                        cols = st.beta_columns((2, 1, 1, 1, 2))
+                        cols = st.columns((2, 1, 1, 1, 2))
                         with cols[0]:
                             length1 = st.number_input("Value1", format="%f", value=0.0, min_value=-5000000000.0,
                                                       max_value=5000000000.0, step=0.01)
@@ -342,7 +342,7 @@ if uploaded_file is not None:
                         with cols[4]:
                             length2 = st.number_input("Value2", format="%f", value=0.0, min_value=-5000000000.0,
                                                       max_value=5000000000.0, step=0.01)
-                        cols = st.beta_columns((1, 1, 1))
+                        cols = st.columns((1, 1, 1))
                         with cols[1]:
                             f1 = dataset[selected_column][~((dataset[selected_column] >= length1) & (
                                     dataset[selected_column] <= length2))]
@@ -369,14 +369,14 @@ if uploaded_file is not None:
                         f1 = dataset[selected_column][~(dataset[selected_column] < pd.to_datetime(date))]
 
                     elif editlen == "Between":
-                        cols = st.beta_columns((2, 1, 1, 1, 2))
+                        cols = st.columns((2, 1, 1, 1, 2))
                         with cols[0]:
                             date1 = st.date_input("Value1", value=datetime.date.today(), min_value=datetime.date.today()-relativedelta(years=125), max_value=datetime.date.today()+relativedelta(years=35))
                         with cols[2]:
                             st.write("AND")
                         with cols[4]:
                             date2 = st.date_input("Value2", value=datetime.date.today(), min_value=datetime.date.today()-relativedelta(years=125), max_value=datetime.date.today()+relativedelta(years=35))
-                        cols = st.beta_columns((1, 1, 1))
+                        cols = st.columns((1, 1, 1))
                         with cols[1]:
                             f1 = dataset[selected_column][~((dataset[selected_column] >= pd.to_datetime(date1)) & (
                                     dataset[selected_column] <= pd.to_datetime(date2)))]
@@ -412,7 +412,7 @@ if uploaded_file is not None:
                                 ~(dataset[selected_column].astype(str).map(len) < length)]
 
                         elif editlen == "Between":
-                            cols = st.beta_columns((2, 1, 1, 1, 2))
+                            cols = st.columns((2, 1, 1, 1, 2))
                             with cols[0]:
                                 length1 = st.number_input("Value1", format="%i", value=0, min_value=0,
                                                           max_value=1000, step=1)
@@ -421,7 +421,7 @@ if uploaded_file is not None:
                             with cols[4]:
                                 length2 = st.number_input("Value2", format="%i", value=0, min_value=0,
                                                           max_value=1000, step=1)
-                            cols = st.beta_columns((1, 1, 1))
+                            cols = st.columns((1, 1, 1))
                             with cols[1]:
                                 f1 = dataset[selected_column][~(
                                         (dataset[selected_column].astype(str).map(len) >= length1) & (
@@ -1121,7 +1121,7 @@ if uploaded_file is not None:
                     ignore_index=False, sort=False).dropna())
                 nofr = probforgraph.groupby(probforgraph.index).first()
                 NOFR = nofr.shape[0]
-                cols = st.beta_columns(2)
+                cols = st.columns(2)
                 with cols[1]:
                     st.write("Records that do not match with the quality rules defined for Telefon No:", prob)
                 goodJob = pd.concat([dataset[selected_column], prob]).drop_duplicates(keep=False)
@@ -1150,7 +1150,7 @@ if uploaded_file is not None:
 
             st.subheader("Data Quality Measurement Results for {}".format(selected_column))
             st.write("")
-            cols = st.beta_columns((2, 1))
+            cols = st.columns((2, 1))
             with cols[0]:
                 rtypes = list(dqst["Records Type"])
                 noR = list(dqst["Number of Records"])
@@ -1194,7 +1194,7 @@ if uploaded_file is not None:
 
     elif task == "Data Corrector":
         st.write("")
-        expanderForSearch = st.beta_expander("Run Search Engine", expanded=False)
+        expanderForSearch = st.expander("Run Search Engine", expanded=False)
         with expanderForSearch:
             if st.checkbox(label="value-based search", key="searchValue"):
                 col_forSearch = st.text_input("Column")
@@ -1231,7 +1231,7 @@ if uploaded_file is not None:
 
 
                         elif searchQualification == "Between":
-                            cols = st.beta_columns((2, 1, 1, 1, 2))
+                            cols = st.columns((2, 1, 1, 1, 2))
                             with cols[0]:
                                 intValue1 = st.number_input("Value1", format="%i", value=0,
                                                             min_value=-5000000000, max_value=5000000000,
@@ -1279,7 +1279,7 @@ if uploaded_file is not None:
                                          dataset[dataset[col_forSearch] < fltValue])
 
                         elif searchQualification == "Between":
-                            cols = st.beta_columns((2, 1, 1, 1, 2))
+                            cols = st.columns((2, 1, 1, 1, 2))
                             with cols[0]:
                                 fltValue1 = st.number_input("Value1", format="%f", value=0.0,
                                                             min_value=-5000000000.0, max_value=5000000000.0,
@@ -1331,7 +1331,7 @@ if uploaded_file is not None:
                                     dataset[dataset[col_forSearch] < pd.to_datetime(dateValue)])
 
                         elif searchQualification == "Between":
-                            cols = st.beta_columns((2, 1, 1, 1, 2))
+                            cols = st.columns((2, 1, 1, 1, 2))
                             with cols[0]:
                                 dateValue1 = st.date_input("Value1", value=datetime.date.today(),
                                                           min_value=datetime.date.today() - relativedelta(
@@ -1354,8 +1354,8 @@ if uploaded_file is not None:
 
                     else:
                         strValue = st.text_input("Value")
-                        layo = st.beta_columns((2, 0.5, 3))
-                        layou = st.beta_columns(1)
+                        layo = st.columns((2, 0.5, 3))
+                        layou = st.columns(1)
                         with layo[0]:
                             if st.button(label="Search", key="forSearching3"):
                                 with layou[0]:
@@ -1397,9 +1397,9 @@ if uploaded_file is not None:
                     except KeyError:
                         st.error("The Index was not found.")
 
-            my_expander = st.beta_expander("Edit Cells", expanded=False)
+            my_expander = st.expander("Edit Cells", expanded=False)
             with my_expander:
-                coleditby = st.beta_columns((1, 3, 6))
+                coleditby = st.columns((1, 3, 6))
                 with coleditby[1]:
                     editBYindex = st.checkbox(label="Edit by Index")
                 if editBYindex:
@@ -1415,7 +1415,7 @@ if uploaded_file is not None:
                                                            min_value=-5000000000,
                                                            max_value=5000000000, step=1)
 
-                            lay = st.beta_columns((3, 4, 2))
+                            lay = st.columns((3, 4, 2))
                             with lay[0]:
                                 if st.button("Alter the Cell"):
                                     dataset[column][idx] = integerValue
@@ -1432,7 +1432,7 @@ if uploaded_file is not None:
                                                          min_value=-5000000000.0,
                                                          max_value=5000000000.0, step=0.01)
 
-                            lay = st.beta_columns((3, 4, 2))
+                            lay = st.columns((3, 4, 2))
                             with lay[0]:
                                 if st.button("Alter the Cell"):
                                     dataset[column][idx] = floatValue
@@ -1444,7 +1444,7 @@ if uploaded_file is not None:
 
                         elif dataset[column].dtype.name == 'datetime64[ns]':
                             dateValue = st.date_input("Value", value=datetime.date.today(), min_value=datetime.date.today()-relativedelta(years=125), max_value=datetime.date.today()+relativedelta(years=35), key="editingDate")
-                            lay = st.beta_columns((3, 4, 2))
+                            lay = st.columns((3, 4, 2))
                             with lay[0]:
                                 if st.button("Alter the Cell"):
                                     dataset[column][idx] = pd.to_datetime(dateValue)
@@ -1456,7 +1456,7 @@ if uploaded_file is not None:
 
                         else:
                             stringValue = st.text_input("Value", key="value_for_editing_index")
-                            lay = st.beta_columns((3, 4, 2))
+                            lay = st.columns((3, 4, 2))
                             with lay[0]:
                                 if st.button("Alter the Cell", key="button_for_index"):
                                     dataset[column][idx] = stringValue
@@ -1468,7 +1468,7 @@ if uploaded_file is not None:
                     except KeyError:
                         st.warning("You are awaited to enter the column name of the cell you want to change.")
 
-                coleditby = st.beta_columns((1, 3, 6))
+                coleditby = st.columns((1, 3, 6))
                 with coleditby[1]:
                     editBYvalue = st.checkbox("Edit by Value")
                 if editBYvalue:
@@ -1488,7 +1488,7 @@ if uploaded_file is not None:
                             success_text1 = str(old) + " values were changed."
                             success_text2 = str(old) + " values were filled with NaN."
                             success_text3 = str(old) + " records were deleted."
-                            lay = st.beta_columns((3, 4, 3))
+                            lay = st.columns((3, 4, 3))
                             with lay[0]:
                                 if st.button("Alter the Cell"):
                                     dataset[column][dataset[column] == integerValue] = new_integerValue
@@ -1515,7 +1515,7 @@ if uploaded_file is not None:
                             success_text1 = str(old) + " values were changed."
                             success_text2 = str(old) + " values were filled with NaN."
                             success_text3 = str(old) + " records were deleted."
-                            lay = st.beta_columns((3, 4, 3))
+                            lay = st.columns((3, 4, 3))
                             with lay[0]:
                                 if st.button("Alter the Cell"):
                                     dataset[column][dataset[column] == floatValue] = new_floatValue
@@ -1538,7 +1538,7 @@ if uploaded_file is not None:
                             success_text1 = str(old) + " values were changed."
                             success_text2 = str(old) + " values were filled with NaN."
                             success_text3 = str(old) + " records were deleted."
-                            lay = st.beta_columns((3, 4, 3))
+                            lay = st.columns((3, 4, 3))
                             with lay[0]:
                                 if st.button("Alter the Cell"):
                                     dataset[column][dataset[column] == pd.to_datetime(dateValue)] = pd.to_datetime(new_dateValue)
@@ -1561,7 +1561,7 @@ if uploaded_file is not None:
                             success_text1 = str(old) + " values were changed."
                             success_text2 = str(old) + " values were filled with NaN."
                             success_text3 = str(old) + " records were deleted."
-                            lay = st.beta_columns((3, 4, 3))
+                            lay = st.columns((3, 4, 3))
                             with lay[0]:
                                 if st.button("Alter the Cell", key="button_for_value"):
                                     dataset[column][dataset[column] == stringValue] = new_stringValue
@@ -1580,11 +1580,11 @@ if uploaded_file is not None:
                     except KeyError:
                         st.warning("You are awaited to enter the column name of the cell you want to change.")
 
-            convert_expander = st.beta_expander("Convert Values in a Column by Using String Methods",
+            convert_expander = st.expander("Convert Values in a Column by Using String Methods",
                                                 expanded=False)
             with convert_expander:
                 obj_cols = dataset.select_dtypes(include=['object', 'category']).columns
-                betacolumns1 = st.beta_columns((0.5, 6, 3.5))
+                betacolumns1 = st.columns((0.5, 6, 3.5))
                 with betacolumns1[1]:
                     convert_toTitle = st.checkbox(
                         label="Convert the first character of each word to upper case, 'Aaa Aaaa'")
@@ -1595,7 +1595,7 @@ if uploaded_file is not None:
                         dataset[selected_col] = dataset[selected_col].str.title()
                         st.success("Values were converted.")
 
-                betacolumns2 = st.beta_columns((0.5, 6, 3.5))
+                betacolumns2 = st.columns((0.5, 6, 3.5))
                 with betacolumns2[1]:
                     convert_toLower = st.checkbox(label="Convert values into lower case, 'aaaaaaaa'")
                 if convert_toLower:
@@ -1605,7 +1605,7 @@ if uploaded_file is not None:
                         dataset[selected_col] = dataset[selected_col].str.lower()
                         st.success("Values were converted.")
 
-                betacolumns3 = st.beta_columns((0.5, 6, 3.5))
+                betacolumns3 = st.columns((0.5, 6, 3.5))
                 with betacolumns3[1]:
                     convert_toUpper = st.checkbox(label="Convert values into upper case, 'AAAAA AAAAAA'")
                 if convert_toUpper:
@@ -1615,7 +1615,7 @@ if uploaded_file is not None:
                         dataset[selected_col] = dataset[selected_col].str.upper()
                         st.success("Values were converted.")
 
-                betacolumns4 = st.beta_columns((0.5, 6, 3.5))
+                betacolumns4 = st.columns((0.5, 6, 3.5))
                 with betacolumns4[1]:
                     convert_to1space = st.checkbox(label="Remove multiple spaces")
                 if convert_to1space:
@@ -1626,7 +1626,7 @@ if uploaded_file is not None:
                             lambda x: re.sub(' +', ' ', str(x))).replace('nan', np.NaN)
                         st.success("Multispaces were removed.")
 
-                betacolumns5 = st.beta_columns((0.5, 6, 3.5))
+                betacolumns5 = st.columns((0.5, 6, 3.5))
                 with betacolumns5[1]:
                     strip = st.checkbox(label="Strip")
                 if strip:
@@ -1637,14 +1637,14 @@ if uploaded_file is not None:
                         dataset[selected_col] = dataset[selected_col].str.strip(strp)
                         st.success("Changes were applied.")
 
-                betacolumns6 = st.beta_columns((0.5, 6, 3.5))
+                betacolumns6 = st.columns((0.5, 6, 3.5))
                 with betacolumns6[1]:
                     replace = st.checkbox(label="Replace")
                 if replace:
                     st.info("If you want to remove the value instead of replacing it with another value, type 'none'.")
                     selected_col = st.selectbox("Select the column with the values you want to change", obj_cols,
                                                 key="forReplace")
-                    cols = st.beta_columns((3, 2, 3))
+                    cols = st.columns((3, 2, 3))
                     with cols[0]:
                         val1 = st.text_input("Find what:")
                         if val1 == "(":
@@ -1694,7 +1694,7 @@ if uploaded_file is not None:
                         success_text = str(int(countrep)) + " values were changed."
                         st.success(success_text)
 
-                betacolumns5 = st.beta_columns((0.5, 9.5))
+                betacolumns5 = st.columns((0.5, 9.5))
                 with betacolumns5[1]:
                     strip = st.checkbox(label="Format Corrector for 'Telefon Numarası' (to reduce the character length of examples like '0XXXXXXXXXX' to 10)")
                 if strip:
@@ -1706,7 +1706,7 @@ if uploaded_file is not None:
                         dataset[selected_col] = dataset[selected_col].astype('str').apply(lambda x : x[1:] if x.startswith(first_char) else x).replace('nan', np.NaN)
                         st.success("Changes were applied.")
 
-            enrich_expander = st.beta_expander("Enrich your Dataset",
+            enrich_expander = st.expander("Enrich your Dataset",
                                                expanded=False)
             with enrich_expander:
                 col_forEnriching = st.text_input("Enter the source column name to enrich",
@@ -1962,7 +1962,7 @@ if uploaded_file is not None:
                 except KeyError:
                     st.warning("You are awaited to enter source column name.")
 
-            sorting_expander = st.beta_expander("Sorting Transformation",
+            sorting_expander = st.expander("Sorting Transformation",
                                                 expanded=False)
             with sorting_expander:
                 col_for_sorting = dataset.columns
@@ -2010,7 +2010,7 @@ if uploaded_file is not None:
         else:
             after_arrow = 4
 
-        odq_graph = st.beta_columns(2)
+        odq_graph = st.columns(2)
         with odq_graph[0]:
             gauge(labels=['VERY LOW', 'LOW', 'MEDIUM', 'HIGH'], \
                   colors=["#1b0203", "#ED1C24", '#FFCC00', '#007A00'], arrow=before_arrow, title=str(bodq_score) + '%')
@@ -2022,7 +2022,7 @@ if uploaded_file is not None:
             plt.title("'After' Overall DQ Score", fontsize=16)
             st.pyplot()
 
-        prepare_expander = st.beta_expander("Prepare Dataset for Download", expanded=False)
+        prepare_expander = st.expander("Prepare Dataset for Download", expanded=False)
         with prepare_expander:
             session_state = SessionState.get(df=dataset)
             if st.checkbox("Reorder and Eliminate Columns", key = "reorder_eliminate"):
@@ -2050,7 +2050,6 @@ else:
     st.write("")
     """
     **Get your data ready for use before you start working with it:**
-
     1. Upload your Excel/CSV file 📁
     2. Gain insight into your data 💡
     3. Measure the quality of your data 📊
