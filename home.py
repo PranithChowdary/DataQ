@@ -158,7 +158,7 @@ if uploaded_file is not None:
                     color = 'white'
                     return f'background-color: {color}'
 
-            cols = st.beta_columns((3, 7))
+            cols = st.columns((3, 7))
             with cols[0]:
                 st.write(
                     nanDF.style.format({'count': '{:,}', 'percentage(%)': '{:.1f}'}).applymap(color_survived, subset=['percentage(%)']))
@@ -173,7 +173,7 @@ if uploaded_file is not None:
                 name="percentage(%)")
             general = pd.concat([freqCount, per], axis=1)
             if general.shape[0] > 10:
-                cols = st.beta_columns(3)
+                cols = st.columns(3)
                 with cols[0]:
                     st.write("5 most frequent values in this column:",
                              general.iloc[np.r_[0:5]].style.format(
