@@ -24,7 +24,7 @@
 
 <h3 align="center">
     Try it now: <br>
-    <a href="https://share.streamlit.io/">https://share.streamlit.io//main/home.py</a>
+    <a href="https://share.streamlit.io/pranithchowdary/dataq/main/home.py">DataQ App</a>
 </h3>
 
 <p>If you have any questions or comments contact me on    <a href="https://www.linkedin.com/in/pranith-chowdary-karumanchi/">LinkedIn</a></p>
